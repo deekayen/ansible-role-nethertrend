@@ -1,4 +1,64 @@
 ---
 
+agent_files:
+  - C:\WINDOWS\System32\Drivers\tbimdsa.sys
+  - C:\WINDOWS\System32\Drivers\tmactmon.sys
+  - C:\WINDOWS\System32\Drivers\tmcomm.sys
+  - C:\WINDOWS\System32\Drivers\tmevtmgr.sys
+  - C:\WINDOWS\System32\Drivers\TMEBC64.sys
+  - C:\WINDOWS\System32\Drivers\TMEBC32.sys
+  - C:\WINDOWS\System32\LogFiles\ds_agent\
+  - C:\Program Files\Trend Micro\AMSP\
+  - C:\Program Files\Trend Micro\Deep Security Agent
+  - C:\Program Files\Trend Micro\Deep Security Notifier
+  - C:\ProgramData\Trend Micro\AMSP\
+  - C:\ProgramData\Trend Micro\Deep Security Agent\
+  - C:\ProgramData\Trend Micro\Deep Security Notifier\
+  - C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Trend Micro\Deep Security\Trend Micro Deep Security Notifier
+  - C:\Documents and Settings\All Users\Start menu\programs\Trend Micro\Deep Security\Trend Micro Deep Security Notifier
+  - C:\WINDOWS\System32\Drivers\tmeyes.sys
+  - C:\WINDOWS\System32\Drivers\tmumh.sys
+
 instdir: "C:\\Program Files\\Trend Micro\\Deep Security Agent"
+
 product_id: '{E30617C2-C572-475B-9995-6DDC44C2B87E}'
+
+registry_entries:
+  - SOFTWARE\TrendMicro\AEGIS
+  - SOFTWARE\TrendMicro\AMSP
+  - SOFTWARE\TrendMicro\AMSPStatus
+  - SOFTWARE\TrendMicro\Deep Security Agent
+  - SOFTWARE\TrendMicro\Falcon
+  - SOFTWARE\TrendMicro\WL
+  - SYSTEM\CurrentControlSet\Services\Amsp
+  - SYSTEM\CurrentControlSet\Services\ds_agent
+  - SYSTEM\CurrentControlSet\Services\ds_monitor
+  - SYSTEM\CurrentControlSet\Services\ds_notifier
+  - SYSTEM\CurrentControlSet\services\eventlog\Application\Deep Security Agent
+  - SYSTEM\CurrentControlSet\services\eventlog\System\tbimdsa\
+  - SYSTEM\CurrentControlSet\Services\tbimdsa
+  - SYSTEM\CurrentControlSet\Services\tmactmon
+  - SYSTEM\CurrentControlSet\Services\tmcomm
+  - SYSTEM\CurrentControlSet\Services\tmevtmgr
+  - SYSTEM\CurrentControlSet\Services\TMEBC
+  - SYSTEM\CurrentControlSet\Services\tmeyes
+  - SYSTEM\CurrentControlSet\Services\tmumh
+  - SOFTWARE\Classes\Installer\UpgradeCodes\689D08D76B5A47A4FB59D97D2C4B9308\
+  - SOFTWARE\Microsoft\Windows\CurrentVersion\Installer\UpgradeCodes\689D08D76B5A47A4FB59D97D2C4B9308\
+  - SOFTWARE\Classes\Installer\UpgradeCodes\9595A43D099883B49B6A1D3194B54E48\
+  - SOFTWARE\Microsoft\Windows\CurrentVersion\Installer\UpgradeCodes\9595A43D099883B49B6A1D3194B54E48\
+  - SOFTWARE\Classes\Installer\UpgradeCodes\FD7DF71DF377E464F8F59FDA68339BD0\
+  - SOFTWARE\Microsoft\Windows\CurrentVersion\Installer\UpgradeCodes\FD7DF71DF377E464F8F59FDA68339BD0\
+
+services:
+  - ds_agent
+  - ds_monitor
+  - ds_notifier
+  - Amsp
+  - tmactmon
+  - tmevtmgr
+  - tmcomm
+  - tmumh
+  - tmebc
+  - tbimdsa
+  - tmeyes

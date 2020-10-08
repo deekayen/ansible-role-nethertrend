@@ -1,7 +1,7 @@
 galaxy_info:
   role_name: nethertrend
   author: David Norman
-  description: Uninstall Trend Micro Deep Security agent, registry keys, and remove files.
+  description: Uninstall Trend Micro Deep Security agent, services, registry keys, and files.
 
   license: BSD
 

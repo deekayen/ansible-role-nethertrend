@@ -10,12 +10,42 @@
   when:
     - dsa_control_stat.stat.exists
     - dsa_control_stat.stat.isreg
+  tags:
+    - deactivate
 
 - name: Uninstall Trend Micro Deep Security Agent advanced host-based protection.
   win_package:
     product_id: "{{ product_id }}"
     state: absent
   register: uninstall_result
+  tags:
+    - package
+
+# Validate complete uninstall.
+
+- name: Delete services.
+  win_service:
+    name: "{{ item }}"
+    state: absent
+  loop: "{{ services }}"
+  tags:
+    - service
+
+- name: Remove registry entries.
+  win_regedit:
+    path: "HKLM:\\{{ item }}"
+    state: absent
+  loop: "{{ registry_entries }}"
+  tags:
+    - registry
+
+- name: Remove application files.
+  win_file:
+    path: "{{ item }}"
+    state: absent
+  loop: "{{ agent_files }}"
+  tags:
+    - files
 
 - name: Reboot.
   win_reboot:
@@ -23,3 +53,5 @@
   when:
     - allow_reboot
     - uninstall_result.reboot_required
+  tags:
+    - reboot
