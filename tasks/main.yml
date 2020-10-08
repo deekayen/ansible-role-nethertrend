@@ -1,4 +1,25 @@
 ---
 
+- name: Look for control script.
+  win_stat:
+    path: "{{ instdir }}\\dsa_control"
+  register: dsa_control_stat
+
 - name: Deactivate Deep Security agent.
-  win_command: "{{ instdir }}\\dsa_control --selfprotect 0"
+  win_command: "{{ instdir }}\\dsa_control --selfprotect 0 -p {{ dsa_control_password }}"
+  when:
+    - dsa_control_stat.stat.exists
+    - dsa_control_stat.stat.isreg
+
+- name: Uninstall Trend Micro Deep Security Agent advanced host-based protection.
+  win_package:
+    product_id: "{{ product_id }}"
+    state: absent
+  register: uninstall_result
+
+- name: Reboot.
+  win_reboot:
+    msg: "Reboot initiated by Ansible for Trend Micro uninstall."
+  when:
+    - allow_reboot
+    - uninstall_result.reboot_required
