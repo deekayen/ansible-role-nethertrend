@@ -1,17 +1,22 @@
 ---
 
-- name: Look for control script.
-  win_stat:
-    path: "{{ instdir }}\\dsa_control"
-  register: dsa_control_stat
+- block:
+  - name: Look for control script.
+    win_stat:
+      path: "{{ instdir }}\\dsa_control"
+    register: dsa_control_stat
 
-- name: Deactivate Deep Security agent.
-  win_command: "{{ instdir }}\\dsa_control --selfprotect 0 -p {{ dsa_control_password }}"
+  - name: Deactivate Deep Security agent.
+    win_command: "{{ instdir }}\\dsa_control --selfprotect 0 -p {{ dsa_control_password }}"
+    when:
+      - dsa_control_stat.stat.exists
+      - dsa_control_stat.stat.isreg
+    tags:
+      - deactivate
+
   when:
-    - dsa_control_stat.stat.exists
-    - dsa_control_stat.stat.isreg
-  tags:
-    - deactivate
+    - dsa_control_password is defined
+    - dsa_control_password | trim | length > 0
 
 - name: Uninstall Trend Micro Deep Security Agent advanced host-based protection.
   win_package:

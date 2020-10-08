@@ -5,11 +5,31 @@ Nether Trend
 
 Uninstall Trend Micro Deep Security Agent advanced host-based protection, registry keys, and remove files using Ansible.
 
+
+https://success.trendmicro.com/solution/1096150-manually-uninstalling-deep-security-agent-relay-and-notifier-from-windows
+
 Role Variables
 --------------
 
+    # Reboot after uninstall.
+    allow_reboot: false
+
+    # Override to disable self-protection when the Management dashboard is unavailable.
+    dsa_control_password: ""
+
+
 Example Playbook
 ----------------
+
+    - name: Uninstall Trend Micro Deep Security Agent.
+      hosts: platform_windows
+
+      vars:
+        allow_reboot: true
+
+      roles:
+         - deekayen.nethertrend
+
 
 Requirements
 ------------
