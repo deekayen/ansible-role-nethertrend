@@ -34,6 +34,8 @@ Example Playbook
 Requirements
 ------------
 
+The control machine should have `pywinrm` and one of `requests-ntlm`, `requests-kerberos`, and/or `requests-credssp` installed by `pip`.
+
 Dependencies
 ------------
 
