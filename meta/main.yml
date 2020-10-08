@@ -1,0 +1,23 @@
+galaxy_info:
+  role_name: nethertrend
+  author: David Norman
+  description: Uninstall Trend Micro Deep Security agent, registry keys, and remove files.
+
+  license: BSD
+
+  min_ansible_version: 2.3
+
+  github_branch: main
+  issue_tracker_url: https://github.com/deekayen/ansible-role-nethertrend/issues
+
+  platforms:
+    - name: Windows
+      versions:
+        - 2016
+
+  galaxy_tags:
+    - windows
+    - trendmicro
+    - uninstall
+
+dependencies: []

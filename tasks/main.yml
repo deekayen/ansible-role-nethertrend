@@ -1,0 +1,4 @@
+---
+
+- name: Deactivate Deep Security agent.
+  win_command: "{{ instdir }}\\dsa_control --selfprotect 0"
