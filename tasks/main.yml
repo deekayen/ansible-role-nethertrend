@@ -12,7 +12,10 @@
     win_shell: ".\\{{ dsa_control | win_basename }} --selfprotect 0 -p \"{{ dsa_control_password }}\""
     args:
       chdir: "{{ dsa_control | win_dirname }}"
+    async: 20
+    poll: 5
     register: dsa_control_out
+    ignore_errors: true
     when:
       - dsa_control_stat.stat.exists
       - dsa_control_stat.stat.isreg
