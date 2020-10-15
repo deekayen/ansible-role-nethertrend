@@ -7,7 +7,7 @@
     register: dsa_control_stat
 
   - name: Deactivate Deep Security agent.
-    win_command: "\"{{ dsa_control }}\" --selfprotect 0 -p {{ dsa_control_password }}"
+    win_command: "\"{{ dsa_control }}\" --selfprotect 0 -p \"{{ dsa_control_password }}\""
     when:
       - dsa_control_stat.stat.exists
       - dsa_control_stat.stat.isreg
