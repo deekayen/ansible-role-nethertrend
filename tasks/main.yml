@@ -10,7 +10,6 @@
     win_shell: "{{ dsa_control | win_basename }} --selfprotect 0 -p \"{{ dsa_control_password }}\""
     args:
       chdir: "{{ dsa_control | win_dirname }}"
-      executable: cmd
     register: dsa_control_out
     when:
       - dsa_control_stat.stat.exists
