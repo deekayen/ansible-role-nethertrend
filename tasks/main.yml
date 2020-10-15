@@ -3,11 +3,11 @@
 - block:
   - name: Look for control script.
     win_stat:
-      path: "{{ instdir }}\\dsa_control"
+      path: "{{ instdir }}\\dsa_control.cmd"
     register: dsa_control_stat
 
   - name: Deactivate Deep Security agent.
-    win_command: "{{ instdir }}\\dsa_control --selfprotect 0 -p {{ dsa_control_password }}"
+    win_command: "{{ instdir }}\\dsa_control.cmd --selfprotect 0 -p {{ dsa_control_password }}"
     when:
       - dsa_control_stat.stat.exists
       - dsa_control_stat.stat.isreg
