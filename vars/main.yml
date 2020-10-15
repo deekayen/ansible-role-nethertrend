@@ -19,7 +19,7 @@ agent_files:
   - C:\WINDOWS\System32\Drivers\tmeyes.sys
   - C:\WINDOWS\System32\Drivers\tmumh.sys
 
-instdir: "C:\\Program Files\\Trend Micro\\Deep Security Agent"
+dsa_control: C:\Program Files\Trend Micro\Deep Security Agent\dsa_control.cmd
 
 product_id: '{E30617C2-C572-475B-9995-6DDC44C2B87E}'
 
