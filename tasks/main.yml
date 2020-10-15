@@ -1,13 +1,15 @@
 ---
 
 - block:
-  - name: Look for control script.
+  - name: Look for dsa_control script.
     win_stat:
       path: "{{ dsa_control }}"
     register: dsa_control_stat
+    tags:
+      - always
 
-  - name: Deactivate Deep Security agent.
-    win_shell: "{{ dsa_control | win_basename }} --selfprotect 0 -p \"{{ dsa_control_password }}\""
+  - name: Deactivate Trend Micro Deep Security agent.
+    win_shell: ".\{{ dsa_control | win_basename }} --selfprotect 0 -p \"{{ dsa_control_password }}\""
     args:
       chdir: "{{ dsa_control | win_dirname }}"
     register: dsa_control_out
