@@ -1,5 +1,8 @@
+---
+
 galaxy_info:
   role_name: nethertrend
+  namespace: deekayen
   author: David Norman
   description: Uninstall Trend Micro Deep Security agent, services, registry keys, and files.
 
